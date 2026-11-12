@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Hogwarts Brasil </title>
+    
+    <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="ceu"></div>
+    <div id="varinha">
+
+        <div class="estrela-varinha">⭐</div>
+
+        <div class="cabo-varinha"></div>
+
+    </div>
+
+    <h1>Bem-vindo a Hogwarts!</h1>
+
+    <p>Venha se aventurar no mundo magico.</p>
+
+    <h2>Qual sera o seu destino:</h2>
+
+    <button onclick="mostrarCasa('Grifinória')">Grifinória</button>
+    <button onclick="mostrarCasa('Sonserina')">Sonserina</button>
+    <button onclick="mostrarCasa('Corvinal')">Corvinal</button>
+    <button onclick="mostrarCasa('Lufa-Lufa')">Lufa-Lufa</button>
+
+    <br><br>
+ <button onclick="descobrirCasa()" class="botao-chapeu">
+    <img src="img/chapeu_seletor-removebg-preview.png" class ="chapeu-botao">
+    Descobrir minha casa
+</button>
+
+    <p id="resultado"></p>
+
+    <!-- Carta de Hogwarts -->
+<div id="carta" class="carta-fundo">
+    <div class="carta">
+        <button class="fechar-carta" onclick="fecharCarta()">✖</button>
+        <h2 id="carta-titulo">Grifinória</h2>
+        <p id="carta-brasao" class="brasao">🦁</p>
+        <p id="carta-texto"></p>
+        <p class="assinatura">Hogwarts - Escola de Magia e Bruxaria</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

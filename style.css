@@ -1,0 +1,425 @@
+    @font-face {
+        font-family: 'Harry P';
+        src: url('HARRYP__.TTF');
+    }
+
+    body {
+
+
+        background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('img/hogwarts2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: white;
+        font-family: Georgia, serif;
+        text-align: center;
+        padding: 40px;
+        min-height: 100vh;
+    }
+
+
+    h1 {
+        font-family: 'Harry P', serif;
+        font-size: 90px;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+
+        /* Dourado metálico 3D igual do Hogwarts Legacy */
+        background: linear-gradient(to bottom,
+                #fff8d6 0%,
+                #ffe97a 20%,
+                #d4af37 40%,
+                #8a6d1a 55%,
+                #f5d76e 70%,
+                #b8860b 85%,
+                #fff2a0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+
+        /* Sombra 3D pra dar profundidade */
+        filter: drop-shadow(0 2px 0 #5a4300) drop-shadow(0 4px 0 #3d2c00) drop-shadow(0 6px 2px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
+    }
+
+
+    h2 {
+        color: #d4af37;
+        margin-top: 40px;
+    }
+
+    button {
+        background-color: #740001;
+        color: white;
+        border: 2px solid #d4af37;
+        padding: 12px 20px;
+        margin: 5px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #d4af37;
+        color: black;
+    }
+
+    #ceu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+
+    /* A coruja vai pra trás */
+    .corujinha-real {
+        position: absolute;
+        animation: voarCoruja linear forwards, baterAsas 0.4s ease-in-out infinite;
+        z-index: 1;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    }
+
+    @keyframes voarCoruja {
+        from {
+            left: -150px;
+        }
+
+        to {
+            left: 110vw;
+        }
+    }
+
+    /* Batida de asa mais forte, com subidinha */
+    @keyframes baterAsas {
+
+        0%,
+        100% {
+            transform: scale(1, 1) rotate(0deg) translateY(0px);
+        }
+
+        25% {
+            transform: scale(1.05, 0.65) rotate(-3deg) translateY(-4px);
+        }
+
+        50% {
+            transform: scale(1, 1.1) rotate(2deg) translateY(3px);
+        }
+
+        75% {
+            transform: scale(1.05, 0.65) rotate(3deg) translateY(-4px);
+        }
+    }
+
+    /* Botões e título na frente das corujas */
+    h1,
+    h2,
+    p,
+    button {
+        position: relative;
+        z-index: 10;
+    }
+
+    .corpo-coruja {
+        font-size: 22px;
+        z-index: 2;
+        filter: grayscale(1) brightness(2.5) drop-shadow(0 0 6px white);
+    }
+
+    .asa {
+        width: 30px;
+        height: 10px;
+        background: #e6e5e4e8;
+        border-radius: 50% 50% 0 50%;
+        animation: baterAsa 0.3s ease-in-out infinite alternate;
+    }
+
+    .asa.esquerda {
+        transform-origin: right center;
+        margin-right: -8px;
+        transform: rotate(-20deg);
+    }
+
+    .asa.direita {
+        transform-origin: left center;
+        margin-left: -8px;
+        transform: rotate(20deg) scaleX(-1);
+    }
+
+    @keyframes baterAsa {
+        0% {
+            transform: rotate(-30deg);
+        }
+
+        100% {
+            transform: rotate(20deg);
+        }
+    }
+
+    @keyframes voar {
+        0% {
+            transform: translateX(0) translateY(0px);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        20% {
+            transform: translateX(20vw) translateY(-40px);
+        }
+
+        40% {
+            transform: translateX(40vw) translateY(30px);
+        }
+
+        60% {
+            transform: translateX(60vw) translateY(-30px);
+        }
+
+        80% {
+            transform: translateX(80vw) translateY(20px);
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateX(110vw) translateY(60px);
+            opacity: 0;
+        }
+    }
+
+    .purpurina {
+        position: absolute;
+        color: #d4af37;
+        font-size: 20px;
+        animation: cair 6s linear infinite;
+    }
+
+    @keyframes cair {
+        0% {
+            transform: translateY(-20px);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    body {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Esconde a seta normal e coloca a varinha */
+    body {
+        cursor: none;
+    }
+
+    button {
+        cursor: none;
+    }
+
+    #varinha {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+    }
+
+    .cabo-varinha {
+        width: 35px;
+        height: 6px;
+        background: #8B4513;
+        border-radius: 10px;
+        transform: rotate(-20deg);
+    }
+
+    .estrela-varinha {
+        font-size: 15px;
+        margin-right: -6px;
+        margin-top: -14px;
+        filter: drop-shadow(0 0 6px gold);
+    }
+
+
+    .rastro-magia {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9998;
+        font-size: 18px;
+        animation: cairMagia 1s ease-out forwards;
+    }
+
+    @keyframes cairMagia {
+        0% {
+            transform: translateY(0) scale(1) rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(50px) scale(0.3) rotate(180deg);
+            opacity: 0;
+        }
+    }
+
+  .corujinha-sprite {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-image: url('img/edwiges_sprite_reto.png');
+    background-size: 840px 140px;
+    animation: voarCoruja linear forwards;
+    z-index: 1;
+}
+
+/* Carta de Hogwarts */
+.carta-fundo {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.carta-fundo.mostrar {
+    display: flex;
+}
+
+.carta {
+    background: #f5e6c8;
+    background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    width: 90%;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    border: 3px solid #8b6914;
+    position: relative;
+    font-family: Georgia, serif;
+    color: #3a2a0a;
+    animation: abrirCarta 0.5s ease;
+}
+
+@keyframes abrirCarta {
+    from { transform: scale(0.7) rotate(-3deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.carta h2 {
+    font-family: '【entity-Harry¦canonical_name=Harry Potter】 P', serif;
+    font-size: 42px;
+    margin: 0;
+    color: #7a1f1f;
+}
+
+.brasao {
+    font-size: 60px;
+    margin: 10px 0;
+}
+
+.carta p {
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.fechar-carta {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.assinatura {
+    font-style: italic;
+    text-align: center !important;
+    margin-top: 20px;
+    color: #8b6914;
+}
+/* Voo mais solto e aleatório */
+@keyframes flutuar {
+    0%, 100% { translate: 0 0; }
+    25% { translate: 0 -25px; }
+    50% { translate: 0 15px; }
+    75% { translate: 0 -10px; }
+}
+@keyframes voarCorujaReversa {
+    from { left: 110vw; }
+    to { left: -150px; }
+}
+/* Botão Descobrir minha casa - mesmo estilo dos outros, só com o chapéu */
+.botao-chapeu {
+    background: #7a1f1f;
+    color: white;
+    font-size: 17px;
+    padding: 10px 20px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px auto 0;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.botao-chapeu:hover {
+    background: #9a2a2a;
+    transform: scale(1.05);
+}
+
+.chapeu-botao {
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+}
+
+/* Chapéu grande dentro da carta */
+.chapeu-carta {
+    width: 130px;
+    height: auto;
+    animation: girarChapeu 1s ease;
+}
+
+@keyframes girarChapeu {
+    0% { transform: rotate(-20deg) scale(0.5); }
+    50% { transform: rotate(20deg) scale(1.2); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes girarChapeu {
+    0% { transform: rotate(-20deg) scale(0.5); }
+    50% { transform: rotate(20deg) scale(1.2); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+.brasao-casa {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+#carta-brasao {
+    text-align: center;
+    width: 100%;
+}
